@@ -23,7 +23,7 @@ Olá, me chamo **Higor Samuel**, sou estudante de **Sistemas de Informação na 
 
 Servidores de Counter-Strike 1.6 ainda rodam em produção com configurações padrão de 2003, versões sem patch e consoles administrativos (RCON) acessíveis sem proteção adequada. São alvos triviais para amplificação de tráfego UDP, reconhecimento de infraestrutura e, em casos mais graves, execução remota de comandos.
 
-Inspirado pelo trabalho do **[@YuriRDev](https://github.com/YuriRDev)** — cujo projeto de descoberta de ativos me mostrou a beleza da automação aplicada à segurança —, adaptei a lógica de asset discovery para o protocolo **GoldSource Engine**, com foco em mapear, documentar e conscientizar sobre a exposição desses servidores no Brasil.
+Inspirado pelo trabalho do **[@YuriRDev](https://github.com/YuriRDev)** cujo projeto de descoberta de ativos me mostrou a beleza da automação aplicada à segurança, adaptei a lógica de asset discovery para o protocolo **GoldSource Engine**, com foco em mapear, documentar e conscientizar sobre a exposição desses servidores no Brasil.
 
 Este não é um projeto de ataque. É um projeto de **espelho**: mostrar aos operadores o que qualquer pessoa na internet já consegue ver sobre sua infraestrutura.
 
