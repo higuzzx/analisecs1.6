@@ -17,9 +17,9 @@
 
 ---
 
-## 📖 Introdução
+##  Introdução
 
-Olá, me chamo **Higor Samuel**, sou estudante de **Sistemas de Informação na Unimontes** e trabalho na **DTI (Diretoria de Tecnologia da Informação)** da universidade. Este projeto nasceu da minha inquietação com um problema real: a negligência generalizada em relação ao hardening de servidores de jogos expostos na internet brasileira.
+Olá, me chamo **Higor Samuel**, sou estudante de **Sistemas de Informação na Unimontes**. Este projeto nasceu da minha inquietação com um problema real: a negligência generalizada em relação ao hardening de servidores de jogos expostos na internet brasileira.
 
 Servidores de Counter-Strike 1.6 ainda rodam em produção com configurações padrão de 2003, versões sem patch e consoles administrativos (RCON) acessíveis sem proteção adequada. São alvos triviais para amplificação de tráfego UDP, reconhecimento de infraestrutura e, em casos mais graves, execução remota de comandos.
 
@@ -176,7 +176,7 @@ docker run --rm \
 
 ---
 
-## 🔬 Análise de Riscos: O Que os Dados Revelam
+##  Análise de Riscos: O Que os Dados Revelam
 
 ### Vulnerabilidades Identificadas em Campo
 
@@ -221,7 +221,7 @@ Servidores sem rate limiting no kernel se tornam involuntariamente **amplificado
 
 ---
 
-## 🛡️ Hardening & Mitigação: Passos Práticos
+##  Hardening & Mitigação: Passos Práticos
 
 ### Nível 1 — Firewall com UFW/Iptables
 
@@ -317,7 +317,7 @@ cs16-network-auditor/
 
 ---
 
-## ⚖️ Metodologia Ética e Conformidade Legal
+##  Metodologia Ética e Conformidade Legal
 
 Este projeto foi desenvolvido com rigoroso compromisso ético:
 
@@ -336,7 +336,7 @@ Este projeto foi desenvolvido com rigoroso compromisso ético:
 
 ---
 
-## 📊 Exemplo de Saída
+##  Exemplo de Saída
 
 ```json
 {
@@ -369,7 +369,7 @@ Este projeto foi desenvolvido com rigoroso compromisso ético:
 
 ---
 
-## 🚀 Como Executar
+##  Como Executar
 
 ```bash
 # 1. Clone o repositório
@@ -388,7 +388,7 @@ python -m scanner --faixa "SEU_IP_AUTORIZADO/24" --output resultados.json
 
 ---
 
-## 📚 Referências e Créditos
+##  Referências e Créditos
 
 - **[@YuriRDev](https://github.com/YuriRDev)** — Inspiração central deste projeto. Seu trabalho com descoberta automatizada de ativos me mostrou como transformar conceitos de segurança em ferramentas práticas e elegantes. Muito do raciocínio de threading e estruturação do scanner foi influenciado pela sua abordagem.
 - [Valve Developer Wiki — Server Queries](https://developer.valvesoftware.com/wiki/Server_queries) — Especificação oficial do protocolo A2S
@@ -397,7 +397,7 @@ python -m scanner --faixa "SEU_IP_AUTORIZADO/24" --output resultados.json
 
 ---
 
-## 🎯 Aprendizados e Próximos Passos
+##  Aprendizados e Próximos Passos
 
 Este projeto me ensinou que **segurança defensiva começa com visibilidade**. Você não pode proteger o que não consegue enxergar. Ao mapear sistematicamente a exposição de servidores GoldSource brasileiros, entendi na prática:
 
