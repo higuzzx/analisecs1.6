@@ -1,4 +1,4 @@
-# 🔍 CS 1.6 Network Audit & Exposure Scanner
+#  CS 1.6 Network Audit & Exposure Scanner
 ### Auditoria Ética de Infraestrutura GoldSource — Hardening, Exposição e Segurança Defensiva
 
 <div align="center">
