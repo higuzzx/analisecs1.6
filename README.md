@@ -289,7 +289,7 @@ udp.port == 27015 && udp.length > 100
 udp.port == 27015 && data.data[4:1] == 55  # byte 0x55 = RCON challenge
 ```
 
-> 📸 **Recomendação de documentação:** Capture o payload expandido na árvore do Wireshark mostrando o campo `Valve Protocol Header (FF FF FF FF)` e os campos de texto desserializados. Censure IPs reais antes de publicar qualquer screenshot.
+> 📸 
 
 ---
 
