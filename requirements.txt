@@ -1,0 +1,42 @@
+# =============================================================================
+# requirements.txt — CS 1.6 Network Audit & Exposure Scanner
+# =============================================================================
+# Dependências Python do projeto.
+#
+# Instalação:
+#   pip install -r requirements.txt
+#
+# Nota: O core do scanner usa apenas stdlib (socket, threading, json).
+#       As dependências abaixo são para CLI, relatórios e UX.
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# CLI e interface de linha de comando
+# ---------------------------------------------------------------------------
+click==8.1.7                  # CLI elegante com subcomandos e help automático
+
+# ---------------------------------------------------------------------------
+# Barra de progresso (UX durante varreduras longas)
+# ---------------------------------------------------------------------------
+tqdm==4.66.4                  # Barra de progresso thread-safe para varreduras
+
+# ---------------------------------------------------------------------------
+# Validação e tipagem de dados
+# ---------------------------------------------------------------------------
+# (stdlib dataclasses e typing são suficientes para este projeto)
+
+# ---------------------------------------------------------------------------
+# Relatórios e serialização
+# ---------------------------------------------------------------------------
+# json (stdlib) é suficiente para JSON
+# html gerado programaticamente no reporter.py (sem dependências externas)
+
+# ---------------------------------------------------------------------------
+# Logging estruturado (opcional — para ambientes de produção)
+# ---------------------------------------------------------------------------
+# python-json-logger==2.0.7   # Descomente se quiser logs em formato JSON
+
+# ---------------------------------------------------------------------------
+# Desenvolvimento e qualidade de código
+# ---------------------------------------------------------------------------
+# (instale separadamente em ambiente de dev: pip install -r requirements-dev.txt)

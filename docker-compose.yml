@@ -1,0 +1,97 @@
+# =============================================================================
+# docker-compose.yml — CS 1.6 Network Audit & Exposure Scanner
+# =============================================================================
+# Orquestra o scanner e facilita o desenvolvimento local.
+#
+# Uso:
+#   docker-compose up --build            # Build + execução com configuração padrão
+#   docker-compose run scanner --help    # Ver todas as opções disponíveis
+#   docker-compose run scanner \
+#     --cidr "200.100.0.0/24" \
+#     --threads 100 \
+#     --output /app/output/relatorio.json
+# =============================================================================
+
+version: "3.9"
+
+services:
+
+  # ---------------------------------------------------------------------------
+  # scanner — serviço principal de auditoria
+  # ---------------------------------------------------------------------------
+  scanner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: cs16-auditor:latest
+
+    container_name: cs16-auditor
+
+    # Rede bridge — isolada do host, mas com acesso à internet
+    # Para varreduras em redes internas autorizadas, use: network_mode: host
+    networks:
+      - auditoria_net
+
+    volumes:
+      # Monta o diretório local 'output/' dentro do container
+      # Os relatórios gerados ficam acessíveis no host após a execução
+      - ./output:/app/output
+
+      # Monta os logs separadamente para fácil acesso
+      - ./logs:/app/logs
+
+    # Variáveis de ambiente configuráveis sem rebuild da imagem
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - MAX_THREADS=${MAX_THREADS:-50}
+      - TIMEOUT=${TIMEOUT:-2.0}
+
+    # Limites de recursos — scanner não deve monopolizar o host
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"         # Máximo 1 CPU
+          memory: "256M"      # Máximo 256MB RAM
+        reservations:
+          cpus: "0.25"
+          memory: "64M"
+
+    # Usuário não-root (definido no Dockerfile, reforçado aqui)
+    user: "auditor"
+
+    # Remove o container após execução (--rm equivalente)
+    restart: "no"
+
+    # Comando padrão — substitua via 'docker-compose run scanner [args]'
+    command: ["--help"]
+
+# ---------------------------------------------------------------------------
+# Redes
+# ---------------------------------------------------------------------------
+networks:
+  auditoria_net:
+    driver: bridge
+    # Sem acesso à rede interna do Docker — apenas saída para internet
+    internal: false
+    ipam:
+      config:
+        - subnet: "172.28.0.0/16"
+
+# ---------------------------------------------------------------------------
+# Exemplos de execução:
+#
+#   # Consultar servidor específico
+#   docker-compose run --rm scanner --ip 192.168.1.10
+#
+#   # Varrer CIDR completo com relatório HTML
+#   docker-compose run --rm scanner \
+#     --cidr "200.100.0.0/24" \
+#     --threads 100 \
+#     --output /app/output/auditoria.json \
+#     --html /app/output/relatorio.html
+#
+#   # Com variáveis de ambiente customizadas
+#   LOG_LEVEL=DEBUG MAX_THREADS=200 docker-compose run --rm scanner \
+#     --cidr "10.0.0.0/8"
+# ---------------------------------------------------------------------------
